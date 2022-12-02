@@ -1,29 +1,58 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import filmsnavbar from '@/views/films/FilmsNavbar.vue'
+import cinemasnavbar from '@/views/cinemas/CinemasNavbar.vue'
+import minenavbar from '@/views/mine/MineNavbar.vue'
+import nowplaying from '@/views/films/NowPlaying.vue'
+import comingsoon from '@/views/films/ComingSoon.vue'
+import filmsdetails from '@/views/films/FilmsDetails.vue'
+import city from '@/views/cinemas/CityModule.vue'
+import search from '@/views/cinemas/SearchCity.vue'
 
 Vue.use(VueRouter)
 
+// 配置表
 const routes = [
+  // 电影页
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '/filmsnavbar',
+    component: filmsnavbar,
+    children: [
+      // 正在热映
+      { path: '/filmsnavbar/nowplaying', component: nowplaying },
+      // 即将上映
+      { path: '/filmsnavbar/comingsoon', component: comingsoon },
+      // 重定向
+      { path: '/filmsnavbar', redirect: '/filmsnavbar/nowplaying' }
+    ]
   },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+  // 电影详情
+  { path: '/filmsnavbar/:myid', component: filmsdetails },
+  // 影院
+  { path: '/cinemasnavbar', component: cinemasnavbar },
+  // 城市选择
+  { path: '/city', component: city },
+  // 搜索影院
+  { path: '/search', component: search },
+  // 我的
+  { path: '/minenavbar', component: minenavbar },
+  { path: '*', redirect: '/filmsnavbar' }
 ]
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
   routes
 })
+
+// 路由拦截
+// router.beforeEach((to, from, next) => {
+//   if (to.meta.isShow) {
+//     store.commit('show')
+//   } else {
+//     store.commit('hide')
+//   }
+//   next()
+//   // return false
+// })
 
 export default router
