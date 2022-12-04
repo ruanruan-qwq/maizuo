@@ -1,4 +1,5 @@
-# hello-vue
+# 项目介绍
+## 这是基于vue2、3实现的仿卖座电影移动端的项目
 
 ## Project setup
 ```
