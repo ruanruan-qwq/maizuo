@@ -73,6 +73,7 @@ import swiperComponent from '@/components/films-swiper/SwiperComponent.vue'
 import swiperComponentList from '@/components/films-swiper/SwiperComponentList.vue'
 import topBar from '@/views/films/TopBar.vue'
 import { ImagePreview } from 'vant'
+import footerNabbarShow from '@/util/mixin'
 
 Vue.filter('showFilter', data => moment(data * 1000).format('YYYY-MM-DD'))
 
@@ -93,6 +94,7 @@ Vue.directive('fixed', {
 })
 
 export default {
+  mixins: [footerNabbarShow],
   mounted () {
     axios.get(`https://m.maizuo.com/gateway?filmId=${this.$route.params.myid}&k=6145278`, {
       headers: {

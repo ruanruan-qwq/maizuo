@@ -14,7 +14,9 @@
 
 <script>
 import cityList from '@/views/cinemas/CityList.vue'
+import footerNabbarShow from '@/util/mixin'
 export default {
+  mixins: [footerNabbarShow],
   data () {
     return {
       value: ''
