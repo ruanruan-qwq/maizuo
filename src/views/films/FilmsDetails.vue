@@ -6,7 +6,9 @@
           {{arr.name}}
         </top-bar>
         <!-- 背景图 -->
-        <div :style="{backgroundImage:'url('+arr.poster+')'}" class="poster"></div>
+        <div :style="{backgroundImage:'url('+arr.poster+')'}" class="poster">
+          <van-icon name="arrow-left" class="vant-icon" @click="handelBack()"/>
+        </div>
 
         <section>
           <div class="introduce">
@@ -118,6 +120,9 @@ export default {
         closeable: true,
         closeIconPosition: 'top-left'
       })
+    },
+    handelBack () {
+      this.$router.back()
     }
   }
 }
@@ -223,5 +228,12 @@ footer{
 }
 .root-div{
   margin-bottom: 3.0625rem;
+}
+
+.vant-icon{
+  position: relative;
+  top: .625rem;
+  left: .625rem;
+  font-size: 1rem;
 }
 </style>
