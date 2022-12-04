@@ -1,18 +1,11 @@
 <template>
-    <!-- 电影列表组件 -->
+    <!-- 城市列表组件 -->
     <div>
         <ul>
-              <li v-for="item in arr" :key="item.cinemaId">
-                  <section>
-                      <p class="name">{{item.name}}</p>
-                      <p class="address">{{item.address}}</p>
-                  </section>
-
-                  <section>
-                      <p class="lowPrice">￥{{item.lowPrice/100}}起</p>
-                  </section>
-              </li>
-          </ul>
+            <li v-for="(item,index) in arr" :key="index">
+                <div class="city-name">{{item.name}}</div>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -20,31 +13,20 @@
 export default {
   props: {
     arr: {
-      type: Array
+      type: Array,
+      // eslint-disable-next-line vue/require-valid-default-prop
+      default: []
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-   li{
-        padding: .9375rem;
-        display: flex;
-        justify-content: space-between;
-        .name{
-            font-size: .9375rem;
-        }
-        .address{
-            font-size: .75rem;
-            color: #797d82;
-            width: 13.75rem;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
-        .lowPrice{
-            color: #ff5f16;
-            font-size: .9375rem;
-        }
-    }
+.city-name{
+    font-size: 13px;
+    height: 2.75rem;
+    line-height: 2.75rem;
+    margin-left: .9375rem;
+    border-bottom: 1px solid #80808014;
+}
 </style>

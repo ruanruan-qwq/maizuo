@@ -13,7 +13,7 @@
       </van-nav-bar>
 
       <div class="box" ref="wrapper" :style="{height:height}">
-        <city-list :arr="cinemaList"></city-list>
+        <cinema-list :arr="cinemaList"/>
       </div>
     </div>
 </template>
@@ -21,7 +21,7 @@
 <script>
 // import axiosCapsulation from '@/util/axios-capsulation'
 import BetterScroll from 'better-scroll'
-import cityList from '@/views/cinemas/CityList.vue'
+import cinemaList from '@/views/cinemas/CinemaList.vue'
 import { mapState, mapActions } from 'vuex'
 export default {
   mounted () {
@@ -65,7 +65,7 @@ export default {
     }
   },
   components: {
-    cityList
+    cinemaList
   },
   computed: {
     ...mapState(['cityName', 'cinemaList'])

@@ -8,12 +8,12 @@
             @search="onSearch"
             @cancel="onCancel"
         />
-        <city-list v-if="value" :arr="computedList"></city-list>
+        <cinema-list v-if="value" :arr="computedList"/>
     </div>
 </template>
 
 <script>
-import cityList from '@/views/cinemas/CityList.vue'
+import cinemaList from '@/views/cinemas/CinemaList.vue'
 import footerNabbarShow from '@/util/mixin'
 export default {
   mixins: [footerNabbarShow],
@@ -31,7 +31,7 @@ export default {
     }
   },
   components: {
-    cityList
+    cinemaList
   },
   computed: {
     computedList () {
