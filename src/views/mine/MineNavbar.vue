@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div @click="handerLogin()">
         <header>
             <section class="header-bg">
                 <div></div>
@@ -31,6 +31,11 @@ import funList from '@/views/mine/FunList.vue'
 export default {
   components: {
     funList
+  },
+  methods: {
+    handerLogin () {
+      this.$router.push('/login')
+    }
   }
 }
 </script>

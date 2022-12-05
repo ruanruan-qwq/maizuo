@@ -8,6 +8,7 @@ import comingsoon from '@/views/films/ComingSoon.vue'
 import filmsdetails from '@/views/films/FilmsDetails.vue'
 import city from '@/views/cinemas/CityModule.vue'
 import search from '@/views/cinemas/SearchCity.vue'
+import login from '@/views/mine/LogIn.vue'
 
 Vue.use(VueRouter)
 
@@ -36,6 +37,8 @@ const routes = [
   { path: '/search', component: search },
   // 我的
   { path: '/minenavbar', component: minenavbar },
+  // 登录页面
+  { path: '/login', component: login },
   { path: '*', redirect: '/filmsnavbar' }
 ]
 
