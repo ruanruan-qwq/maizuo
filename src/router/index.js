@@ -8,8 +8,6 @@ import comingsoon from '@/views/films/ComingSoon.vue'
 import filmsdetails from '@/views/films/FilmsDetails.vue'
 import city from '@/views/cinemas/CityModule.vue'
 import search from '@/views/cinemas/SearchCity.vue'
-// 测试
-import filmtabbar from '@/views/films/FilmTabbar.vue'
 
 Vue.use(VueRouter)
 
@@ -38,8 +36,6 @@ const routes = [
   { path: '/search', component: search },
   // 我的
   { path: '/minenavbar', component: minenavbar },
-  // 测试
-  { path: '/filmtabbar', component: filmtabbar },
   { path: '*', redirect: '/filmsnavbar' }
 ]
 
